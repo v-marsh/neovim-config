@@ -2,27 +2,10 @@ return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-        "williamboman/mason.nvim",
-        "williamboman/mason-lspconfig.nvim",
         "hrsh7th/cmp-nvim-lsp",
         { "antosha417/nvim-lsp-file-operations", config = true },
     },
     config = function()
-        -- Must set up packages is the order: Mason -> mason-lspconfig -> lspconfig
-        require("mason").setup({
-            ui = {
-                icons = {
-                    package_installed = "✓",
-                    package_pending = "➜",
-                    package_uninstalled = "✗",
-                }
-            }
-        })
-
-        require("mason-lspconfig").setup({
-            ensure_installed = { "rust_analyzer", "pyright"}
-        })
-
         -- Setup language servers.
         local lspconfig = require('lspconfig')
 
@@ -58,9 +41,7 @@ return {
                 vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
                 vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
                 vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-                vim.keymap.set('n', '<space>f', function()
-                    vim.lsp.buf.format { async = true }
-                end, opts)
+                vim.keymap.set('n', '<leader>rs', ":LspRestart<CR>", opts)
             end,
         })
 
