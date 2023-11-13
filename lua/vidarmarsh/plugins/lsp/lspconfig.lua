@@ -68,8 +68,24 @@ return {
         },
     })
 
+    local jedi_capabilities = {
+        hoverProvider = true,
+        completionProvider = true,
+    }
+
+    local pyright_capabilities = {}
+    for k, v in pairs(capabilities) do
+        if k ~= "hoverProvider" or k ~= "completionProvider" then
+            pyright_capabilities[k] = v
+        end
+    end
+
     lspconfig["pyright"].setup({
-        capabilities = capabilities,
+        capabilities = pyright_capabilities,
+    })
+
+    lspconfig["jedi_language_server"].setup({
+        capabilities = jedi_capabilities,
     })
 
     lspconfig["rust_analyzer"].setup({
