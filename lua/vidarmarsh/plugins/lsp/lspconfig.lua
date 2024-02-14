@@ -76,7 +76,7 @@ return {
     local pyright_capabilities = {}
     for k, v in pairs(capabilities) do
         if k ~= "hoverProvider" or k ~= "completionProvider" then
-            pyright_capabilities[k] = v
+            pyright_capabilities[k] = false
         end
     end
 
