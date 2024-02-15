@@ -20,7 +20,7 @@ vim.keymap.set("n", "<leader>nh", ":nohl<CR>")
 vim.keymap.set("n", "<leader>w", "<C-W>")
 
 -- File search keymappings
-vim.keymap.set("n", fileleader .. "f", ":Ex<CR>")
+vim.keymap.set("n", "<leader>ex", ":Ex<CR>")
 
 -- Bracket and braces keymappings
 vim.keymap.set("i", "{", "{}<ESC>i")
