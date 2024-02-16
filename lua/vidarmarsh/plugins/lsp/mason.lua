@@ -18,7 +18,13 @@ return {
         })
 
         require("mason-lspconfig").setup({
-            ensure_installed = { "rust_analyzer", "pyright", "jedi_language_server", "lua_ls"}
+            ensure_installed = { "rust_analyzer",
+				"pyright",
+				"jedi_language_server",
+				"lua_ls",
+                "clangd",
+                "cmake",
+            }
         })
 
     end,

@@ -52,45 +52,39 @@ return {
         lspconfig["lua_ls"].setup({
             capabilities = capabilities,
             settings = { -- custom settings for lua
-            Lua = {
-                -- make the language server recognize "vim" global
-                diagnostics = {
-                    globals = { "vim" },
-                },
-                workspace = {
-                    -- make language server aware of runtime files
-                    library = {
-                        [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-                        [vim.fn.stdpath("config") .. "/lua"] = true,
+                Lua = {
+                    -- make the language server recognize "vim" global
+                    diagnostics = {
+                        globals = { "vim" },
+                    },
+                    workspace = {
+                        -- make language server aware of runtime files
+                        library = {
+                            [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                            [vim.fn.stdpath("config") .. "/lua"] = true,
+                        },
                     },
                 },
             },
-        },
-    })
+        })
 
-    local jedi_capabilities = {
-        hoverProvider = true,
-        completionProvider = true,
-    }
+        -- configure python server
+        lspconfig["pyright"].setup({
+            capabilities = capabilities,
+        })
 
-    local pyright_capabilities = {}
-    for k, v in pairs(capabilities) do
-        if k ~= "hoverProvider" or k ~= "completionProvider" then
-            pyright_capabilities[k] = false
-        end
-    end
+        -- configure rust server
+        lspconfig["rust_analyzer"].setup({
+            capabilities = capabilities,
+        })
 
-    lspconfig["pyright"].setup({
-        capabilities = pyright_capabilities,
-    })
+        --configure C++ and CMaker servers
+        lspconfig["clangd"].setup({
+            capabilities = capabilities,
+        })
 
-    lspconfig["jedi_language_server"].setup({
-        capabilities = jedi_capabilities,
-    })
-
-    lspconfig["rust_analyzer"].setup({
-        capabilities = capabilities,
-    })
-
-end,
+        lspconfig["cmake"].setup({
+            capabilities = capabilities,
+        })
+    end,
 }
