@@ -8,6 +8,9 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
+-- Set parenthesis indentation for python
+vim.g.pyindent_open_paren = vim.bo.shiftwidth
+
 -- Keep indenting from previous line
 vim.opt.smartindent = true
 
