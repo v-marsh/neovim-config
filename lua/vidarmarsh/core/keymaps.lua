@@ -22,10 +22,6 @@ vim.keymap.set("n", "<leader>w", "<C-W>")
 -- File search keymappings
 vim.keymap.set("n", "<leader>ex", ":Ex<CR>")
 
--- Bracket and braces keymappings
-vim.keymap.set("i", "{", "{}<ESC>i")
-vim.keymap.set("i", "{}", "{}")
-
 -- Keymap for changing text wrapping with <A-z>
 vim.keymap.set("n", "<A-z>", function()
     if vim.opt.wrap:get() == true then 

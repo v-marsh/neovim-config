@@ -12,9 +12,9 @@ vim.opt.expandtab = true
 vim.g.pyindent_open_paren = vim.bo.shiftwidth
 
 -- Keep indenting from previous line
-vim.opt.smartindent = true
 
---- Do not wrap lines by default
+
+-- Do not wrap lines by default
 vim.opt.wrap = false
 
 -- cursor line and location
