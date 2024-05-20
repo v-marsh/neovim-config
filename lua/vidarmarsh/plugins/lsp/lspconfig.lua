@@ -86,5 +86,9 @@ return {
         lspconfig["cmake"].setup({
             capabilities = capabilities,
         })
+
+        lspconfig["texlab"].setup({
+            capabilities = capabilities,
+        })
     end,
 }

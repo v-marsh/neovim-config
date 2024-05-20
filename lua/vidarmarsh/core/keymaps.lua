@@ -10,10 +10,12 @@ vim.keymap.set({"i", "n"}, "<Up>", "")
 vim.keymap.set({"i", "n"}, "<Left>", "")
 vim.keymap.set({"i", "n"}, "<Down>", "")
 
--- General keymaps
-vim.keymap.set("i", "jk", "<ESC>")
+-- General keymaps  
+vim.keymap.set("i", "jk", "<ESC>")    
 
 vim.keymap.set("n", "<leader>nh", ":nohl<CR>")
+
+vim.keymap.set("n", '"+p', '"+p:%s/\r/<CR>')
 
 
 -- Remap all window commands to use a nicer prefix
@@ -32,4 +34,3 @@ vim.keymap.set("n", "<A-z>", function()
         vim.opt.wrap = true
     end
 end)
-
