@@ -8,7 +8,8 @@ return {
                },
                 options = {
                     pair_spaces = true,
-                    touch_regex = "[%w(%[{]",
+                    disable_when_touch = true,
+                    disabled_filetypes = {"text", "markdown"}
                 },
             })
         end,
