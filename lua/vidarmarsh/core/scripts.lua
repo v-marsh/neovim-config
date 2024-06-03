@@ -21,3 +21,10 @@ vim.api.nvim_create_autocmd({"BufWinEnter"}, {
          vim.fn.setpos('.', save_cursor)
     end
  })
+
+ vim.api.nvim_create_autocmd({"BufWritePost"}, {
+     pattern = "*.tex",
+     callback = function()
+         local texcompile = vim.fn.jobstart('zsh -c latexmk -pdf %')
+     end,
+ })
