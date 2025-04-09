@@ -81,6 +81,9 @@ return {
         --configure C++ and CMaker servers
         lspconfig["clangd"].setup({
             capabilities = capabilities,
+            init_options = {
+                fallbackFlags = {'--std=c++2a'}
+            }
         })
 
         lspconfig["cmake"].setup({
