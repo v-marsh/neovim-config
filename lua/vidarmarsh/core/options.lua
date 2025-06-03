@@ -19,11 +19,15 @@ vim.opt.scrolloff = 8
 vim.opt.cursorline = true
 
 -- Keep vim fast
-vim.opt.updatetime = 50
+vim.opt.updatetime = 45
 
--- Column setup 
+-- Column setup
 vim.opt.colorcolumn = {72, 80}
 vim.opt.signcolumn = "yes"
 
--- apperance
+-- Apperance
 vim.opt.background = "dark"
+
+-- Make splits appear to the right or below
+vim.opt.splitright = true
+vim.opt.splitbelow = true
